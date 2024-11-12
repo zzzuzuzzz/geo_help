@@ -21,8 +21,12 @@
                                 @foreach($companies as $company)
                                     <tr>
                                         <td>{{ $company->address }}</td>
-                                        <td>{{ $company->name }}</td>
-                                        <td>{{ $company->viewed }}</td>
+                                        <td>
+                                            <a href="{{ route('company', $company) }}">
+                                                {{ $company->name }}
+                                            </a>
+                                        </td>
+                                        <td>{{ $company->viewed == 0 ? 'Не просмотрено' : 'Просмотрено' }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
