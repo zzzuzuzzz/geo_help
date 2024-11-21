@@ -41,8 +41,8 @@
                                     <td>{{ $company->site }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Время работы</td>
-                                    <td>{{ $company->work_time }}</td>
+                                    <td>Номер телефона</td>
+                                    <td>{{ $company->phone }}</td>
                                 </tr>
                                 <tr>
                                     <td>Статус</td>

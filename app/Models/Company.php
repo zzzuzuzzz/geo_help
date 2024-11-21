@@ -9,12 +9,13 @@ class Company extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'child',
         'id_from_yandex',
         'name',
         'address',
+        'phone',
         'site',
         'category',
-        'work_time',
         'viewed'
     ];
 }

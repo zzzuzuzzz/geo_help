@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
@@ -31,5 +33,10 @@ class PagesController extends Controller
     {
         $company->update(['viewed' => $company->viewed == 1 ? 0 : 1]);
         return redirect()->back();
+    }
+
+    public function loadJson(Request $request)
+    {
+        dd($request);
     }
 }

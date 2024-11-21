@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@mail.ru',
             'admin' => true
         ]);
-        foreach ($this->companies() as $company) {
-            Company::factory()->create([
-                'name' => $company['name'],
-                'address' => $company['address']
-            ]);
-        }
+//        foreach ($this->companies() as $company) {
+//            Company::factory()->create([
+//                'name' => $company['name'],
+//                'address' => $company['address']
+//            ]);
+//        }
     }
 
     private function companies(): array
