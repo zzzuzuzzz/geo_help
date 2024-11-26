@@ -2,41 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Company;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\Request;
+use App\Contracts\Services\CompaniesServiceContract;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class PagesController extends Controller
 {
-    public function __construct()
+    public function __construct(private readonly CompaniesServiceContract $companiesService)
     {
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(): View
     {
         return view('home');
     }
 
-    public function companies()
+    public function companies(): View
     {
-        $companies = Company::paginate(15);
+        $companies = $this->companiesService->paginateAll();
         return view('pages.companies', ['companies' => $companies]);
     }
 
-    public function company(Company $company)
+    public function company(int $id): View
     {
+        $company = $this->companiesService->getById($id);
         return view('pages.company', ['company' => $company]);
     }
 
-    public function companyPatch(Company $company)
+    public function companyPatch(int $id): RedirectResponse
     {
-        $company->update(['viewed' => $company->viewed == 1 ? 0 : 1]);
+        $this->companiesService->companyViewed($id);
         return redirect()->back();
-    }
-
-    public function loadJson(Request $request)
-    {
-        dd($request);
     }
 }
