@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 interface CompaniesRepositoryContract
 {
     public function findAll(): Collection;
-    public function paginateAll(int $count): LengthAwarePaginator;
+    public function paginateAll(?array $data, ?int $count = 15): LengthAwarePaginator;
     public function getById(int $id): Company;
     public function companyViewed(int $id): void;
 

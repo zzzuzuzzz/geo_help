@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\Services\CompaniesServiceContract;
+use App\Http\Requests\CompaniesRequest;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -18,9 +19,10 @@ class PagesController extends Controller
         return view('home');
     }
 
-    public function companies(): View
+    public function companies(CompaniesRequest $request): View
     {
-        $companies = $this->companiesService->paginateAll();
+        $data = $request->validated();
+        $companies = $this->companiesService->paginateAll($data);
         return view('pages.companies', ['companies' => $companies]);
     }
 

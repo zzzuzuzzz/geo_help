@@ -1,6 +1,26 @@
 @extends('layouts.main')
 @section('mainContent')
     <div class="container-fluid">
+        <form action="{{ route('companies') }}" method="GET" class="card">
+            @csrf
+            <div class="row">
+                <div class="col-12">
+                    <div class="p-2">
+                        <div class="input-group mb-2">
+                            <label class="input-group-text" for="filter-date">Сортировка по дате</label>
+                            <select class="form-select w-50" id="filter-date" name="filter-date">
+                                <option selected disabled>Не выбрано</option>
+                                <option value="asc">По возрастанию</option>
+                                <option value="desc">По убыванию</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <input type="submit" class="btn btn-primary" value="Сохранить">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
         <div class="row">
             <div class="col-12">
                 <div class="card">

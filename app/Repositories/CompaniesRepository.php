@@ -18,9 +18,19 @@ class CompaniesRepository implements CompaniesRepositoryContract
         return $this->getModel()->get();
     }
 
-    public function paginateAll(int $count = 15): LengthAwarePaginator
+    public function paginateAll(?array $data, ?int $count = 15): LengthAwarePaginator
     {
-        return $this->getModel()->paginate($count);
+        $result = $this->getModel()->query();
+
+        if (isset($data['filter-data'])) {
+            if ($data['filter-data'] == 'desc') {
+                $result->orderBy('created_at', 'DESC');
+            } else if ($data['filter-data'] == 'asc') {
+                $result->orderBy('created_at', 'ASC');
+            }
+        }
+
+        return $result->paginate($count);;
     }
 
     public function getById(int $id): Company

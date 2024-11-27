@@ -13,9 +13,9 @@ class CompaniesService implements CompaniesServiceContract
     {
     }
 
-    public function paginateAll(int $count = 15): LengthAwarePaginator
+    public function paginateAll(?array $data, ?int $count = 15): LengthAwarePaginator
     {
-        return $this->companyRepository->paginateAll($count);
+        return $this->companyRepository->paginateAll($data, $count);
     }
 
     public function getById(int $id): Company
