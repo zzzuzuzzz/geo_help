@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('companies', function (Blueprint $table) {
@@ -19,15 +16,13 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('site')->nullable();
-            $table->string('category')->nullable();
+            $table->foreignId('category_id')->references('id')->on('company_types')->cascadeOnDelete();
             $table->boolean('viewed')->default(false);
+            $table->boolean('hide')->default(false);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('companies');

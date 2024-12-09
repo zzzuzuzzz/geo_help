@@ -54,9 +54,10 @@
                         <li class="nav-item">
                             <a href="{{ route('companies') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
-                                <p>Компании{{--<span class="right badge badge-danger">New</span>--}}</p>
+                                <p>Все компании{{--<span class="right badge badge-danger">New</span>--}}</p>
                             </a>
                         </li>
+                        <x-companyInSidebar />
                         <li class="nav-item">
                             <form action="{{ route('logout') }}" method="POST" class="nav-link">
                                 @csrf

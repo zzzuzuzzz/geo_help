@@ -13,7 +13,7 @@ Route::post('/loadJson', function (Request $request) {
             'address' => isset($company['address']) ? $company['address']['formatted']['value'] : 'Адрес не указан',
             'phone' => isset($company['phones'][0]['formatted']) ? $company['phones'][0]['formatted'] : 'Номер не указан',
             'site' => isset($company['urls'][0]['value']) ? $company['urls'][0]['value'] : 'Сайт не указан',
-            'category' => $company['rubrics'][0]['rubric']['name']
+            'category_id' => $company['rubrics'][0]['rubric']['name'] == 'Магазин цветов' ? 1 : 1
         ];
 
         if (isset($company['id'])) {

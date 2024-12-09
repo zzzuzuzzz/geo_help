@@ -48,4 +48,9 @@ class CompaniesRepository implements CompaniesRepositoryContract
         $company = $this->getById($id);
         $company->update(['viewed' => $company->viewed == 1 ? 0 : 1]);
     }
+
+    public function companiesTypes(): Collection
+    {
+        return Company::companiesTypes()->all();
+    }
 }

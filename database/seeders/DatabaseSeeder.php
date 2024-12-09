@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\CompanyType;
 use App\Models\User;
 use App\Models\Company;
 use Illuminate\Database\Seeder;
@@ -21,6 +22,9 @@ class DatabaseSeeder extends Seeder
 //                'address' => $company['address']
 //            ]);
 //        }
+        CompanyType::factory()->create([
+            'title' => 'Магазин цветов'
+        ]);
     }
 
     private function companies(): array

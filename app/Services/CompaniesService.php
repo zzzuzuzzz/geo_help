@@ -6,6 +6,7 @@ use App\Contracts\Repositories\CompaniesRepositoryContract;
 use App\Contracts\Services\CompaniesServiceContract;
 use App\Models\Company;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 
 class CompaniesService implements CompaniesServiceContract
 {
@@ -26,5 +27,10 @@ class CompaniesService implements CompaniesServiceContract
     public function companyViewed(int $id): void
     {
         $this->companyRepository->companyViewed($id);
+    }
+
+    public function companiesTypes(): Collection
+    {
+        return $this->companyRepository->companiesTypes();
     }
 }

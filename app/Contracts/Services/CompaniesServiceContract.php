@@ -10,4 +10,5 @@ interface CompaniesServiceContract
     public function paginateAll(?array $data, ?int $count = 15): LengthAwarePaginator;
     public function getById(int $id): Company;
     public function companyViewed(int $id): void;
+    public function companiesTypes(): Collection;
 }

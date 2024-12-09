@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Company;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,3 +15,7 @@ Route::get('/companies/{company}', [App\Http\Controllers\PagesController::class,
 Route::post('/companies/{company}', [App\Http\Controllers\PagesController::class, 'companyPatch'])->name('company.patch');
 
 Auth::routes();
+
+Route::get('/test', function () {
+    dd(Company::find(1)->companyType()->first());
+});

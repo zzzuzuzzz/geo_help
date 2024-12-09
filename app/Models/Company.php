@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Company extends Model
 {
@@ -15,7 +16,13 @@ class Company extends Model
         'address',
         'phone',
         'site',
-        'category',
-        'viewed'
+        'category_id',
+        'viewed',
+        'hide'
     ];
+
+    public function companiesTypes(): BelongsTo
+    {
+        return $this->belongsTo(CompanyType::class, 'category_id');
+    }
 }
