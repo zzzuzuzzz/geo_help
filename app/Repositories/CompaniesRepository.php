@@ -15,7 +15,7 @@ class CompaniesRepository implements CompaniesRepositoryContract
 
     public function findAll(): Collection
     {
-        return $this->getModel()->get();
+        return $this->getModel()->all();
     }
 
     public function paginateAll(?array $data, ?int $count = 15): LengthAwarePaginator
@@ -51,6 +51,8 @@ class CompaniesRepository implements CompaniesRepositoryContract
 
     public function companiesTypes(): Collection
     {
-        return Company::companiesTypes()->all();
+        // TODO: Implement companiesTypes() method.
+
+        return $this->findAll();
     }
 }

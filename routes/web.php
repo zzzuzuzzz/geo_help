@@ -16,6 +16,4 @@ Route::post('/companies/{company}', [App\Http\Controllers\PagesController::class
 
 Auth::routes();
 
-Route::get('/test', function () {
-    dd(Company::find(1)->companyType()->first());
-});
+Route::get('/test', [App\Http\Controllers\PagesController::class, 'test'])->name('company.test');

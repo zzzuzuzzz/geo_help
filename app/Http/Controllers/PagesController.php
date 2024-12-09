@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\Services\CompaniesServiceContract;
+use App\Contracts\Services\CompanyTypesServiceContract;
 use App\Http\Requests\CompaniesRequest;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -36,5 +37,11 @@ class PagesController extends Controller
     {
         $this->companiesService->companyViewed($id);
         return redirect()->back();
+    }
+
+    public function test(CompanyTypesServiceContract $companyTypesService): void
+    {
+        $result = $companyTypesService->getAll();
+        dd($result);
     }
 }

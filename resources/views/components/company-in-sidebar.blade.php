@@ -7,7 +7,6 @@
         </p>
     </a>
     <ul class="nav nav-treeview">
-        @dd($companyInSidebar)
         @foreach($companyInSidebar as $item)
             <li class="nav-item">
                 <a href="pages/forms/general.html" class="nav-link">
